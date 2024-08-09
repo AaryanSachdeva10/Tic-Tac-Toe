@@ -463,14 +463,16 @@ public class TicTacToe {
             case 'X':
                 xscore++; // increment x's score
                 xscoretext.setText("X: " + xscore); // update x's score label
+                xturn = !xturn; // toggle "xturn" variable
+                playSound("res/win.wav"); // play win sound effect
                 break;
             case 'O':
                 oscore++; // increment o's score
                 oscoretext.setText("O: " + oscore); // update o's score label
+                xturn = !xturn; // toggle "xturn" variable
+                playSound("res/win.wav"); // play win sound effect
                 break;
         }
-        xturn = !xturn; // toggle "xturn" variable
-        playSound("res/win.wav"); // play win sound effect
 
         for (JButton btn : buttons) { // set every button to disabled
             btn.setEnabled(false);
