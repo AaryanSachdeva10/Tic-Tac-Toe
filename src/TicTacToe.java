@@ -21,6 +21,7 @@ import javax.swing.JMenuItem;
 import javax.swing.ButtonGroup;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.Color;
 import javax.swing.Timer;
 import javax.swing.ImageIcon;
@@ -68,25 +69,29 @@ public class TicTacToe {
     }
 
     /**
+     * @throws IOException 
      * @wbp.parser.entryPoint
      */
     
-    public TicTacToe() {
+    public TicTacToe() throws IOException {
         initialize();
     }
 
-    private void initialize() {
+    private void initialize() throws IOException {
     	FlatDarkLaf.setup(); // setup FlatLaf library dark mode
     	
     	// calculations to make the window summon in the center of the screen by chatGPT
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int centerX = (screenSize.width - 505) / 2;
         int centerY = (screenSize.height - 585) / 2;
+        
+        Image icon = Toolkit.getDefaultToolkit().getImage("res/tic-tac-toe-icon.png");
 
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setBounds(centerX, centerY, 505, 585);
         frame.getContentPane().setBackground(TURQUOISE);
+        frame.setIconImage(icon);
         frame.getContentPane().setLayout(null);
 
         JMenuBar menuBar = new JMenuBar();
